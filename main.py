@@ -16,7 +16,7 @@ def run():
     # convert to list of strings
     lines = toList(source)
     # first phase
-    symbols_address = precompile(source)
+    symbols_address = precompile(lines)
     # second pahse
     obj_dict = assembler(lines, symbols_address)
     # write to file and convert to binary

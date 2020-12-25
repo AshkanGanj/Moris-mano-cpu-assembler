@@ -1,9 +1,7 @@
 from instruction_set import PSEUDO
 
-def precompile(source):
-
-    lines = source.split('\n')
-    
+#make our symbols_address table
+def precompile(lines):
     LC = 0
     symbols_address = dict()
 
@@ -12,9 +10,11 @@ def precompile(source):
         if strings[0][-1] == ',':
             symbol = strings[0][:-1]
             symbols_address[symbol] = str(LC)
+        #check if it is ORG 
         elif strings[0] == PSEUDO[0]:
             LC = int(strings[1])
             continue
+        #check for END
         elif strings[0] == PSEUDO[3]:
             break
         LC += 1

@@ -23,6 +23,7 @@ def assembler(lines, symbols_address):
             else:
                 obj_dict[LC] = hex(NON_MRI[word])
         elif switch == 2:
+            #check for ORG
             if word == PSEUDO[0]:
                 LC = int(strings[1])
                 continue
